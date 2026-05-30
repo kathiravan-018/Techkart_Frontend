@@ -1,0 +1,36 @@
+.signup-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.signup-logo{
+    display: flex;
+    justify-content: center;
+    
+}
+.signup-details{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    margin-bottom: 100px;
+    height: 80vh;
+    width: 80vh;
+
+    font-weight: bold;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+}
+.search-box{
+    border-radius: 4px ;
+    padding: 10px;
+    border: 1px solid;
+    margin-top: 10px;
+    box-shadow:
+        inset 2px 2px 5px rgba(0,0,0,0.15),
+        inset -2px -2px 5px rgba(255,255,255,0.8);
+}

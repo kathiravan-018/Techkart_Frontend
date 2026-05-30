@@ -1,0 +1,23 @@
+.footer {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  background-color: #222;
+  color: white;
+  padding: 20px;
+  margin-top: 30px;
+  justify-content: space-between;
+}
+
+.footer-section h3,
+.footer-section h4 {
+  margin-bottom: 10px;
+}
+
+.footer-section p {
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+.footer-section p:hover {
+  text-decoration: underline;
+}

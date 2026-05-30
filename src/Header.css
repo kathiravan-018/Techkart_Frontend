@@ -1,0 +1,120 @@
+/* HEADER */
+.tk-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2874f0;
+  padding: 0 40px;
+  height: 120px; 
+
+}
+
+.tk-logo {
+  height: 100px;   
+  width: auto;
+  object-fit: contain;
+  margin-right: 20px;
+}
+
+/* SEARCH */
+.tk-search-box {
+  flex: 1;
+  margin: 0 30px;
+}
+
+.tk-search-box input {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+}
+
+/* RIGHT SIDE */
+.tk-right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  color: white;
+}
+
+/* LOGIN BUTTON */
+.login-btn {
+  background: white;
+  color: #2874f0;
+  padding: 6px 20px;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* PROFILE */
+.tk-profile {
+  position: relative;
+}
+
+/* DROPDOWN */
+.tk-dropdown {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  width: 220px;
+  background: white;
+  color: black;
+  border-radius: 6px;
+  padding: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.2s;
+
+  z-index: 9999; 
+}
+
+/* SHOW DROPDOWN */
+.tk-profile:hover .tk-dropdown {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* LINKS */
+.tk-dropdown a {
+  display: block;
+  padding: 8px;
+  text-decoration:none;
+  color: black;
+  border-radius: 4px;
+}
+
+.tk-dropdown a:hover {
+  background: #f1f1f1;
+}
+
+/* NEW USER */
+.new-user {
+  font-size: 14px;
+}
+
+.logout {
+  width: 100%;
+  padding: 6px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.tk-cart {
+  cursor: pointer;
+  font-weight: 500;
+}
+
+
+.cart-badge {
+  background: red;
+  padding: 2px 6px;
+  border-radius: 20%;
+  font-size: 12px;
+}
