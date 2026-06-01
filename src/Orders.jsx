@@ -27,7 +27,10 @@ export default function Orders() {
                 orders.map((order) => (
                     <div key={order.id} className="card p-3 mb-3 shadow-sm">
 
-                        <img src={order.image} width="150" />
+                        <img
+                            src={order.image}
+                            alt={order.name || `Order ${order.id}`}
+                            />
 
                         <h5>{order.name}</h5>
                         <p>{order.details}</p>
