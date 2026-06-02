@@ -18,7 +18,7 @@ export default function Login() {
     const handleLogin = async () => {
         try {
             const response = await axios.post(
-                'http://127.0.0.1:8000/api/login/',
+                'https://techkart-backend-8.onrender.com/api/login/',
                 {
                     username,
                     password

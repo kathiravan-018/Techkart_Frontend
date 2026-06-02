@@ -19,7 +19,7 @@ export default function Profile() {
 
         if (!username) return;
 
-        axios.get(`http://127.0.0.1:8000/api/profile/?username=${username}`)
+       axios.get(`https://techkart-backend-8.onrender.com/api/profile/?username=${username}`)
             .then(res => {
 
                 setProfile(res.data);
@@ -40,7 +40,7 @@ export default function Profile() {
 
     const saveProfile = async () => {
         try {
-            const res = await axios.post("http://127.0.0.1:8000/api/profile/", {
+            const res = await axios.post("https://techkart-backend-8.onrender.com/api/profile/", {
                 username,
                 email,
                 phone,
