@@ -27,7 +27,7 @@ export default function CartProvider({children}){
     }, [cart]);
 
     const deletecart=(id)=>{
-    const updatecart = cart.filter((item)=>item.id != id);
+    const updatecart = cart.filter((item)=>item.id !== id);
 
     setcart(updatecart);
     localStorage.setItem("cart",JSON.stringify(updatecart));
