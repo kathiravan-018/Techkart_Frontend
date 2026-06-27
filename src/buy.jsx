@@ -31,7 +31,7 @@ export default function Buy({  wishlist, setwishlist}){
 
     // Create Order
     const orderResponse = await axios.post(
-      "http://127.0.0.1:8000/api/orders/",
+      "http://techkart-backend-7.onrender.com/api/orders/",
       {
         user: userId,
         total: price,
@@ -43,7 +43,7 @@ export default function Buy({  wishlist, setwishlist}){
 
     // Create Order Item
     await axios.post(
-      "http://127.0.0.1:8000/api/orderitems/",
+      "http://techkart-backend-7.onrender.com/api/orderitems/",
       {
         order: orderId,
         product_name: product.name,

@@ -21,7 +21,7 @@ export default function Signin() {
 
     try{
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/signin/",{
+        "http://techkart-backend-7.onrender.com/api/signin/",{
           email,
           password,
         }

@@ -18,7 +18,7 @@ export default function Orders() {
       const userId = localStorage.getItem("user_id");
 
       const response = await axios.get(
-        `http://127.0.0.1:8000/api/orders/?user=${userId}`
+        `http://techkart-backend-7.onrender.com/api/orders/?user=${userId}`
       );
 
       setOrders(response.data);
@@ -30,7 +30,7 @@ export default function Orders() {
   const cancelorder = async (orderId) => {
     try {
       await axios.delete(
-        `http://127.0.0.1:8000/api/orders/${orderId}/`
+        `http://techkart-backend-7.onrender.com/api/orders/${orderId}/`
       );
 
       setOrders((prev) =>
