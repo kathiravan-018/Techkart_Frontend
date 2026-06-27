@@ -81,6 +81,10 @@ input{
     top: 10%;
     
 }
+.terms a {
+  color: blue;
+  text-decoration: underline;
+}
 
 @media (max-width:430px){
     .signin-card{

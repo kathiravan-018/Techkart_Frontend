@@ -1,6 +1,6 @@
 import './Signin.css';
 import { useState, useContext} from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { Usercontext } from './context/Usercontext';
@@ -80,8 +80,15 @@ export default function Signin() {
       </button>
 
     <p className="terms">
-      By continuing, you agree to Techkart <a >Conditions of Use</a> and <a >Privacy Conditions</a>.
-    </p>
+  By continuing, you agree to TechKart{" "}
+  <Link to="/aboutus" className="terms-link">
+    Conditions of Use
+  </Link>{" "}
+  and{" "}
+  <Link to="/aboutus" className="terms-link">
+    Privacy Conditions
+  </Link>.
+</p>
 
   </div>
 </div>
