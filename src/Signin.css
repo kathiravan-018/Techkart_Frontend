@@ -1,0 +1,96 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.signin-container{
+    width: 100%;
+    height: 120vh;
+    background: linear-gradient(to right, #1d4ed8, #ff4ecd);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signin-card{
+    width: 600px;  
+    height: 550px;  
+    background-color: white;
+    border-radius: 28px;
+    padding: 45px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+    text-align: center;
+}
+
+.signin-card h1{
+    position: relative;
+    right: 4em;
+    margin-bottom: 40px;
+    font-size: 30px;
+    font-weight: 700;
+    color: #111;
+}
+.signin-card h2{
+    margin-bottom: 40px;
+    font-size: 30px;
+    font-weight: 700;
+    transform: translateX(-10px);
+    color: #111;
+}
+
+/* Inputs */
+input{
+    width: 85%;
+    padding: 12px 20px;
+    margin: 10px 0;
+    border-radius: 999px;
+    border: 1px solid #ccc;
+    outline: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Button */
+.signin-btn{
+    width: 85%;
+    padding: 13px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 999px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    background: linear-gradient(to right, #1d4ed8, #ff4ecd);
+}
+
+.signin-btn:hover{
+    color: rgb(224, 90, 197);
+    border: 2px solid rgb(224, 90, 197);
+    background: white;
+}
+
+/* Terms */
+.terms{
+    font-size: 15px;
+    position: relative;
+    top: 10%;
+    
+}
+
+@media (max-width:430px){
+    .signin-card{
+        width: calc(100% - 10%);
+        height: 500px;
+        padding: 0;
+    }
+    .signin-card h1{
+        font-size: 30px;
+        left: 0.1em;
+        margin-top: 20px;
+    }
+}

@@ -1,41 +1,54 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 import Home from "./Home";
 import Header from "./Header";
 import Footer from "./Footer";
 import Cartthings from "./Cartthings";
-import Signup from "./Signup";
+import Signin from "./Signin";
 import Login from "./Login";
-import Profile from "./Profile";
 import Orders from "./Orders";
+import OrdersDetails from "./OrdersDetails";
 import Wishlist from "./Wishlist";
 import Rewards from "./Rewards";
+import Buy from "./buy";
+import AboutUs from "./Aboutus";
+import Features from "./Features";
+import Details from "./Details";
 
 function App() {
+  
+  
 
-  const [cart, setcart] = useState([]);
-  const [wishlist, setwishlist] = useState([]);
+  
   const [search, setSearch] = useState("");
 
   const location = useLocation();
 
-  function removeFromCart(indexToRemove) {
-    setcart(prev =>
-      prev.filter((_, index) => index !== indexToRemove)
-    );
-  }
+  useLayoutEffect(() => {
+  window.scrollTo(0, 0);
+}, [location.pathname]);
+
+  const [wishlist, setwishlist] = useState(() => {
+  const saved = localStorage.getItem("wishlist");
+  return saved ? JSON.parse(saved) : [];
+});
+
+    useEffect(() => {
+      localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    }, [wishlist]);
 
   return (
     <>
-      {location.pathname !== "/signup" &&
-       location.pathname !== "/login" && (
-        <Header
-          cart={cart.length}
-          setSearch={setSearch}
-        />
-      )}
+      {location.pathname !== "/Signin" &&
+        location.pathname !== "/login" &&
+        location.pathname !== "/userdetails" && (
+          <Header setSearch={setSearch} />
+        )}
 
       <Routes>
 
@@ -43,41 +56,67 @@ function App() {
           path="/"
           element={
             <Home
-              setcart={setcart}
-              setwishlist={setwishlist}
               search={search}
+            />
+          }
+        />
+          
+        <Route
+          path="/cart"
+          element={
+            <Cartthings/>
+          }
+        />
+
+        <Route
+          path="/wishlist"
+          element={
+            <Wishlist
+              wishlist={wishlist}
+              setwishlist={setwishlist}
+            />
+          }
+        />
+
+        <Route path="/signin" element={<Signin />} />
+        <Route path="/login" element={<Login />} />
+        <Route 
+            path="/orders" 
+            element={<Orders /> } /> 
+        <Route 
+            path="/orders/:id" 
+            element={<OrdersDetails />} />
+        
+        <Route path="/rewards" element={<Rewards />} />
+
+        <Route path="/userdetails" element={<Details/>}/>
+
+        <Route
+          path="/buy/:id"
+          element={
+            <Buy
+              wishlist={wishlist}
+              setwishlist={setwishlist}
             />
           }
         />
 
         <Route
-          path="/cart"
+          path="/aboutus"
           element={
-            <Cartthings
-              cart={cart}
-              removeFromCart={removeFromCart}
-            />
+            <AboutUs />
           }
         />
 
-         <Route
-            path="/wishlist"
-            element={
-            <Wishlist
-               wishlist={wishlist}
-               setwishlist={setwishlist}
-            />
-            }
+        <Route 
+          path="/features"
+          element={
+            <Features />
+          }
           />
 
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/orders" element={<Orders />} />
-        <Route path="/rewards" element={<Rewards />} />
-
       </Routes>
-
+      <ToastContainer />
       <Footer />
     </>
   );

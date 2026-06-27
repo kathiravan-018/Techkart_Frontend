@@ -1,101 +1,86 @@
-import "./App.css";
-import mobile from './images/mobile.jpg';
-import laptop from './images/laptop.jpg';
-import jersey from './images/jersey.jpg';
-import shoes from './images/shoes.jpg';
-import tv from './images/tv.jpg';
+import "./Home.css";
+import samsung from "./images/samsung.jpeg";
+import fridge from "./images/fridge.jpeg";
+import earbuds from "./images/earbuds.jpeg";
+import { products } from "./products";
+import { useNavigate } from "react-router-dom";
 
-export default function Home({ setcart, setwishlist, search = "" }) {
+export default function Home() {
+  const navigate = useNavigate();
 
-    function Rating({ stars, count }) {
-        return (
-            <div className="d-flex align-items-center">
-                <span className="text-warning">
-                    {"★".repeat(stars) + "☆".repeat(5 - stars)}
-                </span>
-                <span className="ms-2">({count})</span>
+  return (
+    <div className="home-container">
+
+      <div className="hero-section">
+         <img src={earbuds} alt="Earbuds Banner" className="hero-banner" />
+      </div>
+      <div className="grid">
+        {products.slice(0, 4).map((product) => (
+          <div className="card" key={product.id}>
+            <h4>{product.name}</h4>
+
+            <button
+              className="img-btn"
+              onClick={() => navigate(`/buy/${product.id}`)}
+            >
+              <img src={product.image} alt={product.name} />
+            </button>
+
+            <div className="intro">
+              <button
+                className="buy-btn"
+                onClick={() => navigate(`/buy/${product.id}`)}
+              >
+                Buy 
+              </button>
             </div>
-        );
-    }
+          </div>
+        ))}
+      </div>
 
-    function Addtocart(product) {
-        setcart(prev => [...prev, product]);
-        alert("Added to Cart 🛒");
-    }
+      {/* Samsung Banner */}
+      <section className="hero-section">
+        <img
+          src={samsung}
+          alt="Samsung Mobile Banner"
+          className="trend-samsung"
+        />
+      </section>
 
-    function AddToWishlist(product) {
-    setwishlist(prev => {
-        const updated = [...prev, product];
-        console.log(updated);
-        return updated;
-    });
+      {/* Second Product Section */}
+      <div className="grid">
+        {products.slice(4, 8).map((product) => (
+          <div className="card" key={product.id}>
+            <h4>{product.name}</h4>
 
-    alert("Added to Wishlist ❤️");
-}
+            <button
+              className="img-btn"
+              onClick={() => navigate(`/buy/${product.id}`)}
+            >
+              <img src={product.image} alt={product.name} />
+            </button>
 
-    const products = [
-        { name: "Samsung TV", details: "4K SMART TV", price: 45999, image: tv },
-        { name: "Vivo V60e", details: "8GB RAM | 256GB ROM", price: 35500, image: mobile },
-        { name: "RCB Jersey", details: "For Boys & Kids", price: 1500, image: jersey },
-        { name: "Nike Shoes", details: "Mens Casual Shoes", price: 4000, image: shoes },
-        { name: "DELL Laptop", details: "i5 13th Gen", price: 54999, image: laptop }
-    ];
+            <div className="intro">
+              <button
+                className="buy-btn"
+                onClick={() => navigate(`/buy/${product.id}`)}
+              >
+                Buy 
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
 
-    const query = (search ?? "").toLowerCase();
+      {/* Fridge Banner */}
+      <section className="hero-section">
+        <img
+          src={fridge}
+          alt="Refrigerator Banner"
+          className="trend-fridge"
+        />
+      </section>
 
-    const filteredProducts = products.filter(product =>
-        product.name.toLowerCase().includes(query) ||
-        product.details.toLowerCase().includes(query)
-    );
-
-    return (
-        <div className="grid">
-
-            {filteredProducts.length === 0 ? (
-                <h3 className="text-center w-100 mt-5">
-                    No products found 😢
-                </h3>
-            ) : (
-                filteredProducts.map((product, index) => (
-                    <div className="card" key={index}>
-
-                        <img src={product.image} alt={product.name} />
-
-                        <p>{product.name}</p>
-                        <p>{product.details}</p>
-                        <h3>₹{product.price}</h3>
-
-                        <Rating stars={3} count={100} />
-
-                        
-                        <div className="d-flex align-items-center gap-2 mt-3 ms-5">
-
-                            <button
-                                className="btn btn-warning"
-                                onClick={() => Addtocart(product)}
-                            >
-                                Add to cart
-                            </button>
-
-                        
-                            <button
-                                onClick={() => AddToWishlist(product)}
-                                style={{
-                                    fontSize: "24px",
-                                    background: "none",
-                                    border: "none",
-                                    cursor: "pointer"
-                                }}
-                            >
-                                ❤️
-                            </button>
-
-                        </div>
-
-                    </div>
-                ))
-            )}
-
-        </div>
-    );
+    </div>
+  );
 }

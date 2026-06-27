@@ -1,0 +1,307 @@
+
+.title{
+    margin: 10px;
+    padding: 5px;
+}
+.scroll-container{
+    
+    width:900px;
+    display:flex;
+    align-items:flex-start;
+    gap:20px;
+    position: relative;
+    
+}
+
+.scroll-img{
+    margin-top: 10px;
+    width: 800px;
+    height: 600px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.left-scroll{
+    position: absolute;
+    top: 40%;
+    left: 4em;
+    background: none;
+    border: none;
+    border-radius: 999px;
+    background-color: rgb(248, 242, 242);
+    padding: 10px 15px;
+}
+.right-scroll{
+    position: absolute;
+    right: 3em;
+    top: 40%;
+    background: none;
+    border: none;
+    border-radius: 999px;
+    background-color: rgb(248, 242, 242);
+    padding: 10px 15px;
+}
+.buy-page{
+    display: flex;
+}
+.thum-container{
+    height: 200px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 8%;
+}
+.price-container{
+     border: 3px solid #ddd;
+     padding: 10px 20px;
+     width: 500px;
+     position: relative;
+     top: 5%;
+     display: flex;
+     justify-content: space-between;
+     border-radius: 10px;
+     height: 100px;
+     border-color: #1675ce ;
+}
+.price-container h3{
+    margin: 10px;
+    font-weight: 500;
+}
+.price-container p{
+    margin: 5px;
+    font-weight: 100;
+}
+.thum-container img{
+    width: 7em;
+    height: 7em;
+    border: 1px solid #ddd;
+    object-fit: cover;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.thum-container img:hover{
+    border: 2px solid blue;
+    transform: scale(1.05);
+}
+.details-container {
+    margin-top: 10px;
+    margin-left: 20px;
+    position: sticky;
+    top: 20px;
+     align-self: flex-start;
+    height: fit-content;
+  
+}
+    
+
+.btn:hover{
+    color: blue;
+    background-color: aliceblue;
+    
+}
+.buynow-btn{
+     padding: 8px 76px;
+     border-radius: 999px ;
+     display: block;
+     margin-left: 5px;
+     position: relative;
+     left: 50%;
+}
+.buynow-btn:hover{
+    color: black;
+    background-color: white;
+
+}
+.product-summary {
+   position: relative;
+   top: 4em;
+   width: 500px;
+   height: 250px;
+   border: 1px solid #ccc;
+   padding: 20px 15px;
+}
+.product-summary td{
+    padding-right: 50px;
+    position: relative;
+    top: 1em;
+    left: 4em;
+}
+.rewards{
+    position: relative;
+    top: 6%;
+    left: 2em;
+    color: #3b8edb;
+    font-weight: 700;
+}
+
+.wish-div{
+    display: flex;
+    align-items: end;
+    gap: 8px;
+    position: relative;
+    left: 41%;
+}
+.addcart-btn{
+    padding: 8px 66px;
+    border-radius: 999px ;
+}
+
+
+.like-btn{
+    background: none;
+    cursor: pointer;
+
+}
+.like-btn.liked path{
+    fill: rgb(207, 23, 54);
+    stroke: transparent;
+    cursor: pointer;
+}
+.rating-container{
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin-left: 10px;
+}
+
+.star{
+    font-size: 30px;
+}
+
+.filled{
+    color: gold;
+}
+
+.empty{
+    color: black;
+}
+
+.rating-value{
+    font-size: 23px;
+    margin-left: 8px;
+    margin-top: 3px;
+    font-weight: bold;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loading-gif {
+  width: 120px;
+  height: 120px;
+}
+
+@media (max-width: 430px) {
+
+    
+  .buy-page{
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .scroll-container{
+    width: 100%;
+    gap: 0;
+  }
+  .rewards{
+    left: 0;
+  }
+  .scroll-img{
+    width: 100%;
+    height: 300px;
+    padding: 10px;
+  }
+
+  .scroll-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .left-scroll{
+    left: 10px;
+  }
+
+  .right-scroll{
+    right: 10px;
+  }
+
+  .thum-container{
+    width: 100%;
+    margin-left: 0;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: auto;
+  }
+
+  .thum-container img{
+    width: 60px;
+    height: 60px;
+  }
+
+  .details-container{
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 20px;
+    padding: 10px;
+    position: static;
+  }
+
+  .price-container{
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .product-summary{
+    width: 100%;
+    height: auto;
+    top: 20px;
+  }
+
+  .product-summary td{
+    left: 0;
+    padding-right: 15px;
+  }
+
+  .wish-div{
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    justify-content: center;
+  }
+
+  .addcart-btn,
+  .buynow-btn{
+    width: 100%;
+    padding: 12px;
+    left: 0;
+    margin: 0px;
+  }
+
+  .title{
+    font-size: 1.3rem;
+  }
+
+  .rating-container{
+    margin-left: 0;
+  }
+  .thum-container{
+    display: none;
+  }
+
+}

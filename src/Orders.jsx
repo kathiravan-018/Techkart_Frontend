@@ -1,54 +1,135 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./Orders.css";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 export default function Orders() {
+  const navigate = useNavigate();
 
-    const [orders, setOrders] = useState([]);
+  const [orders, setOrders] = useState([]);
 
-    useEffect(() => {
-        const data = JSON.parse(localStorage.getItem("orders")) || [];
-        setOrders(data);
-    }, []);
+  useEffect(() => {
+    fetchOrders();
+  }, []);
 
-    const cancelOrder = (id) => {
-        const updated = orders.filter(order => order.id !== id);
+  const fetchOrders = async () => {
+    try {
+      const userId = localStorage.getItem("user_id");
 
-        setOrders(updated);
-        localStorage.setItem("orders", JSON.stringify(updated));
-    };
+      const response = await axios.get(
+        `http://127.0.0.1:8000/api/orders/?user=${userId}`
+      );
 
-    return (
-        <div className="container mt-4">
+      setOrders(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-            <h2 className="text-center mb-4">My Orders 📦</h2>
+  const cancelorder = async (orderId) => {
+    try {
+      await axios.delete(
+        `http://127.0.0.1:8000/api/orders/${orderId}/`
+      );
 
-            {orders.length === 0 ? (
-                <h4 className="text-center">No Orders Yet</h4>
-            ) : (
-                orders.map((order) => (
-                    <div key={order.id} className="card p-3 mb-3 shadow-sm">
+      setOrders((prev) =>
+        prev.filter((order) => order.id !== orderId)
+      );
 
-                        <img
-                            src={order.image}
-                            alt={order.name || `Order ${order.id}`}
-                            />
+      toast.warning("Order cancelled successfully", {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: true,
+        icon: false,
+        theme: "colored",
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-                        <h5>{order.name}</h5>
-                        <p>{order.details}</p>
-                        <h6>₹{order.price}</h6>
-                        <small>{order.date}</small>
+  return (
+    <div className="orders-page">
+      {orders.length === 0 ? (
+        <div className="empty-orders">
+          <h1>No Orders Yet</h1>
+          <p>Your order history will appear here.</p>
 
-                        
-                        <button
-                            className="btn btn-warning mt-3"
-                            onClick={() => cancelOrder(order.id)}
-                        >
-                            Cancel Order
-                        </button>
-
-                    </div>
-                ))
-            )}
-
+          <button onClick={() => navigate("/")}>
+            Continue Shopping
+          </button>
         </div>
-    );
+      ) : (
+        <div className="orders-container">
+          <h2>Your Orders</h2>
+
+          {orders.map((order) => (
+            <div key={order.id} className="order-card">
+              <div className="order-left">
+                <img
+                  src={order.items[0]?.image}
+                  alt="product"
+                />
+
+                <div>
+                  <h3>Order #{order.id}</h3>
+
+                  <p>
+                    {new Date(
+                      order.created_at
+                    ).toLocaleDateString()}
+                  </p>
+
+                  <p>
+                    {order.items.reduce(
+                      (total, item) =>
+                        total + item.quantity,
+                      0
+                    )}{" "}
+                    items
+                  </p>
+
+                  <h4>
+                    ₹
+                    {Number(order.total).toLocaleString(
+                      "en-IN"
+                    )}
+                  </h4>
+                </div>
+              </div>
+
+              <div className="order-right">
+                <span
+                  className={`status ${order.status.toLowerCase()}`}
+                >
+                  {order.status}
+                </span>
+
+                <div className="ord-btns">
+                  <button
+                    className="details-btn"
+                    onClick={() =>
+                      navigate(`/orders/${order.id}`)
+                    }
+                  >
+                    View Details
+                  </button>
+
+                  <button
+                    className="cancel-btn"
+                    onClick={() =>
+                      cancelorder(order.id)
+                    }
+                  >
+                    Cancel Order
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
 }

@@ -1,120 +1,217 @@
-/* HEADER */
 .tk-header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  background: #2874f0;
-  padding: 0 40px;
-  height: 120px; 
-
-}
-
-.tk-logo {
-  height: 100px;   
-  width: auto;
-  object-fit: contain;
-  margin-right: 20px;
-}
-
-/* SEARCH */
-.tk-search-box {
-  flex: 1;
-  margin: 0 30px;
-}
-
-.tk-search-box input {
+  align-items: center;
+  padding: 0 30px;
+  height: 70px;
   width: 100%;
-  padding: 8px 12px;
-  border-radius: 4px;
-  border: none;
-  outline: none;
+  position: sticky;   
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+.tk-header.transparent {
+  background: transparent;
+  position: absolute; 
+}
+.tk-header.solid {
+  background: #3b8edb;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-/* RIGHT SIDE */
-.tk-right {
+
+.logo{
+  font-size: 30px;
+  font-weight: 800;
+  color: #ec9748;
+  cursor: pointer;
+}
+
+.logo span{
+  color: #ccc;
+}
+
+nav{
   display: flex;
   align-items: center;
   gap: 25px;
+}
+
+.nav-pages{
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-pages a{
+  text-decoration: none;
   color: white;
+  font-weight: 580;
 }
 
-/* LOGIN BUTTON */
-.login-btn {
-  background: white;
-  color: #2874f0;
-  padding: 6px 20px;
-  border-radius: 4px;
-  font-weight: 600;
-  cursor: pointer;
+/* SEARCH */
+.tk-search-box{
+  display: flex;
 }
 
-/* PROFILE */
-.tk-profile {
-  position: relative;
+.nav-search{
+  width: 600px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  color: #fff ;
+  -webkit-text-fill-color: #fff;
+  font-size: 16px;
+  outline: none;
 }
 
-/* DROPDOWN */
-.tk-dropdown {
+.nav-icons{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-wrapper{
+  
+  display: flex;
+  align-items: center;
+ 
+}
+
+.hidden-details{
+  width: 250px;
+  height: 310px;
+  border-radius: 30px;
+  background-color: #f9efef;
+
   position: absolute;
-  top: 45px;
-  right: 0;
-  width: 220px;
-  background: white;
-  color: black;
-  border-radius: 6px;
-  padding: 10px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  top: 4.5em;
+  right: 1em;
+
+  padding: 20px;
 
   opacity: 0;
   visibility: hidden;
-  transition: 0.2s;
 
-  z-index: 9999; 
+  transform: translateY(-15px) scale(0.97);
+
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+  z-index: 999;
 }
 
-/* SHOW DROPDOWN */
-.tk-profile:hover .tk-dropdown {
+.profile-wrapper:hover .hidden-details{
   opacity: 1;
   visibility: visible;
+  transform: translateY(0) scale(1);
 }
 
-/* LINKS */
-.tk-dropdown a {
-  display: block;
-  padding: 8px;
-  text-decoration:none;
+
+.user-details{
+  position: relative;
+  top: 4vh;
+  left: 3vh;
+}
+
+.log-link,.sign-link{
   color: black;
-  border-radius: 4px;
+  text-decoration: none;
 }
 
-.tk-dropdown a:hover {
-  background: #f1f1f1;
+.line{
+  position: relative;
+  top: 3vh;
 }
 
-/* NEW USER */
-.new-user {
-  font-size: 14px;
+.order-link,.wish-link,.reward-link,.details-link{
+  color: black;
+  text-decoration: none;
+  display: block;
+  margin-top: 15px;
+  position: relative;
+  top: 4vh;
+  left: 3vh;
+  font-weight: 300;
 }
 
-.logout {
-  width: 100%;
-  padding: 6px;
-  background: red;
-  color: white;
+.bottomline{
+  position: relative;
+  top: 1em;
+}
+
+.logout{
+  position: relative;
+  top: 2vh;
+  left: 3vh;
+}
+.nav-icons svg {
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+.nav-icons button{
   border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.tk-cart {
-  cursor: pointer;
-  font-weight: 500;
+  background: none;
 }
 
 
-.cart-badge {
-  background: red;
-  padding: 2px 6px;
-  border-radius: 20%;
-  font-size: 12px;
+@media (max-width: 430px){
+
+  .nav-pages{
+    display: none;
+  }
+
+  .tk-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 8px 12px;
+    gap: 10px;
+    height: auto;
+  }
+
+  /* Logo */
+  .logo{
+     font-size: 16px;
+  flex: 0;
+  width: auto;
+  
+    
+  }
+
+  /* Icons */
+  .nav-icons{
+    flex: 0 0 80px;
+  width: 50px;
+  overflow: hidden;
+  }
+
+  .nav-icons svg{
+    width: 22px;
+    height: 22px;
+  }
+
+  /* Search Bar */
+  .tk-search-box{
+    width: 200px;
+    display: flex;
+    
+  }
+
+  .nav-search{
+    width: 200px;
+    max-width: 280px;
+    padding: 8px 14px;
+    font-size: 13px;
+    margin: 0px;
+  }
+
+  /* Profile Popup */
+  .hidden-details{
+    width: 210px;
+    right: 0;
+  }
 }
