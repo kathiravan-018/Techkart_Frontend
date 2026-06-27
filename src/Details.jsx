@@ -26,7 +26,7 @@ export default function Details() {
     const fetchProfile = async () => {
       try {
         const res = await axios.get(
-          `http://techkart-backend-7.onrender.com/api/details/user/${user_id}/`
+          `https://techkart-backend-7.onrender.com/api/details/user/${user_id}/`
         );
 
         setUserDetails(res.data);
@@ -55,7 +55,7 @@ export default function Details() {
       // CREATE
       if (!profileId) {
         const res = await axios.post(
-          "http://techkart-backend-7.onrender.com/api/details/",
+          "https://techkart-backend-7.onrender.com/api/details/",
           {
             user: user_id,
             ...userDetails,
@@ -68,7 +68,7 @@ export default function Details() {
       // UPDATE
       else {
         await axios.put(
-          `http://techkart-backend-7.onrender.com/api/details/${profileId}/`,
+          `https://techkart-backend-7.onrender.com/api/details/${profileId}/`,
           {
             user: user_id,
             ...userDetails,

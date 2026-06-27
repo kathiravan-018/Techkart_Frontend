@@ -12,7 +12,7 @@ useEffect(() => {
   const fetchOrder = async () => {
     try {
       const response = await axios.get(
-        `http://techkart-backend-7.onrender.com/api/orders/${id}/`
+        `https://techkart-backend-7.onrender.com/api/orders/${id}/`
       );
 
       setOrder(response.data);

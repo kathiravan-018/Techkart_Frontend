@@ -58,7 +58,7 @@ if (!userId) {
 
     // Create Order
     const orderResponse = await axios.post(
-      "http://techkart-backend-7.onrender.com/api/orders/",
+      "https://techkart-backend-7.onrender.com/api/orders/",
       {
         user: userId,
         total: subtotal,
@@ -71,7 +71,7 @@ if (!userId) {
     // Create OrderItems
     for (const item of cart) {
       await axios.post(
-        "http://techkart-backend-7.onrender.com/api/orderitems/",
+        "https://techkart-backend-7.onrender.com/api/orderitems/",
         {
           order: orderId,
           product_name: item.name,
