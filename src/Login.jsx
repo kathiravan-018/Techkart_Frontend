@@ -1,5 +1,5 @@
 import './Login.css';
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
@@ -76,7 +76,7 @@ export default function Login() {
     onClick={login}>Log In</button>
 
     <p className="terms">
-      By continuing, you agree to Techkart <a href="">Conditions of Use</a> and <a href="">Privacy Conditions</a>.
+      By continuing, you agree to Techkart <a >Conditions of Use</a> and <a >Privacy Conditions</a>.
     </p>
 
   </div>

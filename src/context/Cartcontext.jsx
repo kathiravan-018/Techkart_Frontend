@@ -1,4 +1,4 @@
-import react,{ createContext } from "react";
+import { createContext } from "react";
 import { useState, useEffect } from "react";
 
 export const Cartcontext = createContext();
@@ -11,13 +11,13 @@ export default function CartProvider({children}){
 
     const increaseqty=(id)=>{
     setcart(
-      cart.map((item)=>item.id==id ? {...item,quantity:item.quantity+1}:item)
+      cart.map((item)=>item.id===id ? {...item,quantity:item.quantity+1}:item)
     );
   };
 
     const decreaseqty=(id)=>{
         setcart(
-            cart.map((item)=>item.id==id && item.quantity > 1 ? {...item,quantity:item.quantity-1}:item)
+            cart.map((item)=>item.id===id && item.quantity > 1 ? {...item,quantity:item.quantity-1}:item)
         );
         };
 

@@ -80,7 +80,7 @@ export default function Signin() {
       </button>
 
     <p className="terms">
-      By continuing, you agree to Techkart <a href="">Conditions of Use</a> and <a href="">Privacy Conditions</a>.
+      By continuing, you agree to Techkart <a >Conditions of Use</a> and <a >Privacy Conditions</a>.
     </p>
 
   </div>

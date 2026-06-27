@@ -8,10 +8,7 @@ export default function OrderDetails() {
 
   const [order, setOrder] = useState(null);
 
-  useEffect(() => {
-    fetchOrder();
-  }, []);
-
+useEffect(() => {
   const fetchOrder = async () => {
     try {
       const response = await axios.get(
@@ -23,6 +20,9 @@ export default function OrderDetails() {
       console.log(error);
     }
   };
+
+  fetchOrder();
+}, [id]);
 
   if (!order) {
     return <h2>Loading...</h2>;

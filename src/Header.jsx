@@ -5,7 +5,7 @@ export default function Header({ setSearch }) {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const username = localStorage.getItem("username");
+
 
   const handleLogout = () => {
   localStorage.removeItem("user_id");
