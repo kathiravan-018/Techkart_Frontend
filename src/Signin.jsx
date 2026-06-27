@@ -26,6 +26,8 @@ export default function Signin() {
           password,
         }
       )
+      console.log("EMAIL:", email);
+console.log("PASSWORD:", password);
       console.log(response.data);
       toast.success("Signin Successful", {
           position: "top-center",
