@@ -152,7 +152,7 @@ export const products = [
     category: "tab",
     brand: "Lenovo",
     details:
-      "lenovo tab",
+      "Lenovo Idea Tab Pro Gen 2 with Pen Plus {Smartchoice} 13inch Display,  144Hz Refresh , Snapdragon 8s Gen 4 | 10200mAh, Luna Grey",
     rewardPoints: 45,
     price: "₹ 3,100.00",
     rating: 4,
