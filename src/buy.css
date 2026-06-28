@@ -120,7 +120,7 @@
      display: block;
      position: relative;
     margin: 20px auto;
-    left: 6%;
+    left: 26%;
      
 }
 .buynow-btn:hover{
@@ -156,7 +156,8 @@
     align-items: end;
     justify-content: center;
     gap: 8px;
-    position: static;
+    position: relative;
+    left: 20%;
 
 }
 .addcart-btn{
