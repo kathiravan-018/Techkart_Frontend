@@ -177,7 +177,10 @@ export default function Buy({  wishlist, setwishlist}){
             <hr />
            
             <div className='buy-page'>
-                 <div className='scroll-container'>
+                 
+            <div className="image-section">
+
+              <div className='scroll-container'>
                <button
                className='left-scroll'
                onClick={()=>setcurrentImage(currentImage===0 ? product.images.length-1 : currentImage-1)}
@@ -194,6 +197,19 @@ export default function Buy({  wishlist, setwishlist}){
                   ❯
 
                 </button>
+            </div>
+                              <div className='thum-container'>
+                    {product.images.map((img,index)=>(
+                        <img 
+                        key={index}
+                        src={img} 
+                        alt={product.name}
+                        className='thum'
+                        onClick={()=>setcurrentImage(index)} />
+
+                    ))}
+                    
+                </div>
             </div>
               <div className='details-container'>
 
@@ -260,18 +276,7 @@ export default function Buy({  wishlist, setwishlist}){
 
                 </div>
             </div>
-                <div className='thum-container'>
-                    {product.images.map((img,index)=>(
-                        <img 
-                        key={index}
-                        src={img} 
-                        alt={product.name}
-                        className='thum'
-                        onClick={()=>setcurrentImage(index)} />
 
-                    ))}
-                    
-                </div>
                {loading && (
                   <div className="loading-overlay">
                     <img src={loadingGif} alt="loading" />
