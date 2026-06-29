@@ -197,9 +197,9 @@
   }
 
   .ord-card{
-    width: 400px;
+    width: calc(100% - 30px);
     margin: 15px;
-  }
+}
 
   .emp-cart{
     width: 300px;
