@@ -21,13 +21,9 @@ import Features from "./Features";
 import Details from "./Details";
 
 function App() {
-  
-  
-
-  
-  const [search, setSearch] = useState("");
-
   const location = useLocation();
+
+  const [search, setSearch] = useState("");
 
   useLayoutEffect(() => {
   window.scrollTo(0, 0);
@@ -47,7 +43,10 @@ function App() {
       {location.pathname !== "/Signin" &&
         location.pathname !== "/login" &&
         location.pathname !== "/userdetails" && (
-          <Header setSearch={setSearch} />
+          <Header 
+          search={search}
+          setSearch={setSearch}
+          />
         )}
 
       <Routes>

@@ -155,6 +155,31 @@ nav{
   border: none;
   background: none;
 }
+.search-container {
+    position: relative;
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 5px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 1000;
+}
+
+.search-item {
+    padding: 12px;
+    cursor: pointer;
+    color: white;
+}
+
+
 
 
 @media (max-width: 430px){

@@ -1,7 +1,8 @@
 import "./Header.css";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { products } from "./products";
 
-export default function Header({ setSearch }) {
+export default function Header({ search,setSearch }) {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -16,6 +17,10 @@ export default function Header({ setSearch }) {
 
   window.location.reload();
 };
+
+ const filteredProducts = products.filter(product =>
+  product.name.toLowerCase().includes(search.toLowerCase())
+);
 
   const isHome = location.pathname === "/";
 
@@ -39,6 +44,22 @@ export default function Header({ setSearch }) {
           placeholder="Search products..."
           onChange={(e) => setSearch(e.target.value)}
         />
+
+        {search && (
+  <div className="search-results">
+    {filteredProducts.map(product => (
+      <div
+        key={product.id}
+        className="search-item"
+        onClick={() => {
+          setSearch("");
+          navigate(`/buy/${product.id}`)}}
+      >
+        {product.name}
+      </div>
+    ))}
+  </div>
+)}
       </div>
 
       <div className="nav-icons">

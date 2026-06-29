@@ -5,12 +5,12 @@ import earbuds from "./images/earbuds.jpeg";
 import { products } from "./products";
 import { useNavigate } from "react-router-dom";
 
-export default function Home() {
+export default function Home({search}) {
   const navigate = useNavigate();
 
+       
   return (
     <div className="home-container">
-
       <div className="hero-section">
          <img src={earbuds} alt="Earbuds Banner" className="hero-banner" />
       </div>
